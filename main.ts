@@ -21,16 +21,21 @@ game.setScore(0)
 let 被霸凌的鐵 = game.createSprite(0, 0)
 basic.forever(function () {
     if (被霸凌的鐵.isTouching(豬腳)) {
-        game.removeLife(1)
+        basic.clearScreen()
+        豬腳.delete()
+        被霸凌的鐵.delete()
+        豬腳 = game.createSprite(2, 4)
         被霸凌的鐵 = game.createSprite(0, 0)
+        game.removeLife(1)
     }
 })
 basic.forever(function () {
     if (搗蛋) {
         if (被霸凌的鐵.isTouching(搗蛋)) {
-            被霸凌的鐵.delete()
             搗蛋.delete()
+            被霸凌的鐵.delete()
             豬腳.delete()
+            basic.clearScreen()
             game.addScore(1)
             被霸凌的鐵 = game.createSprite(0, 0)
             豬腳 = game.createSprite(2, 4)
